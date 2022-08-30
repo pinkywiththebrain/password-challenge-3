@@ -1,7 +1,8 @@
 // Assignment Code
+//Targets the generate id (the button)
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword() {
+function generatePassword(userLength) {
   //1. Prompt user for password criteria 
   //    a. length between 8 and 128 characters
   //    b. lowercase, uppercase, numbers, and special characters
@@ -23,9 +24,9 @@ console.log(userLength)
   //Uppercase
   var upLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
-  var userUpper = window.confirm("Do you want uppercase letters?")
+  var userUpper = window.confirm("Press OK if you want to include uppercase letters.")
     if (userUpper) {
-
+      
     } else if (!userUpper) {
 
     }
@@ -33,30 +34,39 @@ console.log(userLength)
   //Lowercase
   var lowLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
-  var userLower = window.confirm("Do you want lowercase letters?")
+  var userLower = window.confirm("Press OK if you want to include lowercase letters.")
     if (userLower) {
 
     } else if (!userLower) {
 
     }
 
+//Numbers
+var numbers = ["0","1","2","3","4","5","6","7","8","9"]
+
+  var userNum = window.confirm("Press OK if you want to include numbers.")
+    if (userNum) {
+      
+    } else if (!userNum) {
+
+    }
+
 //Special Characters
   var specialChars = ["!","@","#","$","%","^","&","*","?"]
 
-  var userChars = window.confirm("Do you want special characters?")
+  var userChars = window.confirm("Press OK if you want to include special characters.")
     if (userChars) {
       
     } else if (!userChars) {
 
     }
 
-
-
-
-    
   //2. Validate input
-  //3. Generate password based on criteria
 
+
+  //3. Generate password based on criteria
+//  var index = 
+//  var password = options[index];
 
   //4. Display generate pw on page
   return
