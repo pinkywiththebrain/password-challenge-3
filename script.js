@@ -2,16 +2,12 @@
 //Targets the generate id (the button)
 var generateBtn = document.querySelector("#generate");
 
-function randomNum(min, max) {
-  if (!max) {
-    max - min
-    min - 0
-  }
-  var rand = Math.random()
-  return Math.floor(min*(1 - rand) + rand*max)
+function randomNum(max) {
+  return Math.floor(Math.random()* max);
 }
 
 function randomItem(list) {
+  
   return list[randomNum(list.length)]
 }
 
@@ -36,14 +32,16 @@ function generatePassword() {
 
   // The array that will store the chosen arrays
   var selected = []
-  console.log(selected)
+  
 
   //Uppercase Prompt
   var upLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
   var userUpper = window.confirm("Press OK if you want to include uppercase letters.")
     if (userUpper) {
-      selected.push(upLetters);
+      for (var i = 0; i< upLetters.length; i++){
+        selected.push(upLetters[i]);
+      }
     } else if (!userUpper) {
 
     }
@@ -53,7 +51,9 @@ function generatePassword() {
 
   var userLower = window.confirm("Press OK if you want to include lowercase letters.")
     if (userLower) {
-      selected.push(lowLetters);
+      for (var i = 0; i< lowLetters.length; i++){
+        selected.push(lowLetters[i]);
+      }
     } else if (!userLower) {
 
     }
@@ -63,7 +63,9 @@ function generatePassword() {
 
   var userNum = window.confirm("Press OK if you want to include numbers.")
     if (userNum) {
-      selected.push(numbers);
+      for (var i = 0; i< numbers.length; i++){
+        selected.push(numbers[i]);
+      }
     } else if (!userNum) {
 
     }
@@ -73,7 +75,9 @@ function generatePassword() {
 
   var userChars = window.confirm("Press OK if you want to include special characters.")
     if (userChars) {
-      selected.push(specialChars);
+      for (var i = 0; i< specialChars.length; i++){
+        selected.push(specialChars[i]);
+      }
     } else if (!userChars) {
 
     }
@@ -81,15 +85,14 @@ function generatePassword() {
 
     var generatedPassword = ""
 
-    for (var i = 0; i < userLength; i++) {
-      var randomList = randomItem(selected)
-      var randomChar = randomItem(randomList)
-      console.log(randomChar)
-    }
 
+    for (var i = 0; i < userLength; i++) {
+      var randomChar = randomItem(selected)
+      generatedPassword=generatedPassword+randomChar;
+    }
     
   
-  return
+  return generatedPassword
 }
 
 // Write password to the #password input
